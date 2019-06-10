@@ -1,0 +1,26 @@
+{
+  "name": "lim009-fe-md-links",
+  "version": "1.0.0",
+  "description": "Markdown md-links",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anaisTe/LIM009-fe-md-links.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "library",
+    "npm",
+    "node.js",
+    "Markdown"
+  ],
+  "author": "Anais Tejada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anaisTe/LIM009-fe-md-links/issues"
+  },
+  "homepage": "https://github.com/anaisTe/LIM009-fe-md-links#readme"
+}
