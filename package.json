@@ -21,17 +21,20 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "jest": "^24.8.0"
+    "@babel/preset-env": "^7.4.5"
   },
   "author": "Anais Tejada",
   "license": "ISC",
+  "bin": {
+    "say-hello": "./cli.js"
+  },
   "bugs": {
     "url": "https://github.com/anaisTe/LIM009-fe-md-links/issues"
   },
   "homepage": "https://github.com/anaisTe/LIM009-fe-md-links#readme",
   "devDependencies": {
     "eslint": "^5.16.0",
-    "eslint-config-node": "^4.0.0"
+    "eslint-config-node": "^4.0.0",
+    "jest": "^24.8.0"
   }
 }
