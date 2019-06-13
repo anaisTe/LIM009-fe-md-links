@@ -11,4 +11,4 @@ describe('Función que retorna una ruta absoluta', () => {
       expect(linkAbsValidate('index.js')).toBe('C:\\Users\\L-5-38\\LIM009-fe-md-links\\index.js');        
     });
   });
-  
+   
