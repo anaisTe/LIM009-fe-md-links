@@ -1,56 +1,80 @@
 #!/usr/bin/env node 
 //es sincrono
-// const [,, ...args] = process.argv
-// console.log(`link ingresado ${args}`);
 
-// const path = require('path');
-// const ruta =  `${args}`;
-//  const linkAbsValidate = (ruta) =>{
-//     if (path.isAbsolute(ruta) === true ) {
-//        // return ruta
-//          console.log('la ruta es absoluta');
-//     }else {
-//         //return  path.resolve(ruta)
-//         console.log('la ruta es relativa convertir a absoluta',path.resolve(ruta));      
-//     }
-// }
-// linkAbsValidate(ruta)
     
 
 //leer archivo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//leer directorio
 // const [,, ...args] = process.argv
-// console.log(`archivo ingresado ${args}`);
+// console.log(`directorio ingresado ${args}`);
 // const fs = require('fs');
-// const fsRuta =  `${args}`;
+// path = require('path'); 
+// //let fsRuta =  `${args}`;
 
-// const readingFiles = (fsRuta) =>{
-//     fs.readFile((fsRuta),'UTF-8', (error, data) => {
-//         if (error) {
-//             console.log(error);            
-//         }else{
-//             console.log(data);
+
+// const readdingDir = (dir) =>{
+//     console.log('[+]', dir);
+//     let files = fs.readdirSync(dir);
+//     for(let x in files){
+//         let next = path.join(dir,files[x]);       
+//         if (fs.lstatSync(next).isDirectory()===true) {
+//             readdingDir(next)
+//         } else {
+//             console.log('\t', next);
 //         }
-//     });
+//     }
 // }
-// readingFiles(fsRuta)
+// readdingDir(__dirname);
 
 
-const [,, ...args] = process.argv
-console.log(`directorio ingresado ${args}`);
-const fs = require('fs');
-let fsRuta =  `${args}`;
-let dirBuff = Buffer.from(fsRuta);
 
-const readingDir = (dirBuff) =>{
-    fs.readdir((dirBuff), (error, files) =>{
-        if (error) {
-            console.log(error);
-        }else{
-            console.log(files);  
-        }
-        });
-    }
-readingDir(dirBuff)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let dirBuff = Buffer.from(fsRuta);
+
+// const readingDir = (dirBuff) =>{
+//     fs.readdir((dirBuff), (error, files) =>{
+//         if (error) {
+//             console.log(error);
+//         }else{
+//             console.log(files);  
+//         }
+//         });
+//     }
+// readingDir(dirBuff)
+
+
 //fs.readFileSync('<directory>');
 // => [Error: EISDIR: illegal operation on a directory, read <directory>]
 
