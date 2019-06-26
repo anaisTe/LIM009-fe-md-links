@@ -1,4 +1,4 @@
-import { linkAbsValidate, readingFiles } from "../index.js";
+import { linkAbsValidate, fileIsFiles} from "../src/absolute.js";
 
 //lee ruta y convierte de relativa a absoluta
 describe('Función que retorna una ruta absoluta', () => {
@@ -13,15 +13,15 @@ describe('Función que retorna una ruta absoluta', () => {
     });
   });
    
-//lee archivo  
+//lee si es file 
   describe('Función que lee un archivo', () => {
-    it('readingFiles debería ser una función', () => {
-      expect(typeof readingFiles).toBe('function');
+    it('fileIsFiles debería ser una función', () => {
+      expect(typeof fileIsFiles).toBe('function');
     });
-    it('Muestra un error al leer un archivo', () => {
-      expect(readingFiles('C:/Users/L-5-38/LIM009-fe-md-links/index.js')).toBe('C:/Users/L-5-38/LIM009-fe-md-links/index.js');        
+    it('Devuelve un boolean cuando lee la Ruta y es File', () => {
+      expect(fileIsFiles('C:/Users/L-5-38/LIM009-fe-md-links/index.js')).toBe(true);        
     });
-    it('Devuelve un array con el ', () => {
-      expect(readingFiles('index.js')).toBe('C:\\Users\\L-5-38\\LIM009-fe-md-links\\index.js');        
+    it('Devuelve un boolean cuando lee la Ruta y no es File', () => {
+      expect(fileIsFiles('C:/Users/L-5-38/LIM009-fe-md-links')).toBe(false);        
     });
   });
