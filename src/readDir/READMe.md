@@ -1,1 +1,0 @@
-https://dev.to/banesag/javascript-logical-operators-and-boolean-values-1l07
