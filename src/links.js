@@ -42,27 +42,50 @@ const routeMd = (routers) => {
 
 //función que verifica el estatus
 const statusLink = (routeStatus) =>{
-    const linkStat = routeStatus.map(eleLink =>{
-        return fetch(eleLink.href)
-        .then ((res)=>{
-            eleLink.status = res.status;
-            if(res.ok){
-                eleLink.ok = 'ok';
-            }else{
-                eleLink.ok = 'fail';
-            }
-            return eleLink
-        })
+  const linkStat = routeStatus.map(eleLink =>{
+    return fetch(eleLink.href)
+    .then ((res)=>{
+      eleLink.status = res.status;
+        if(res.ok){
+          eleLink.ok = 'ok';
+        }else{
+          eleLink.ok = 'fail';
+        }
+          return eleLink
     })
+  })
     return Promise.all(linkStat)
 }
-statusLink(routeLinks(arrMds))
-.then((res)=>{
-    console.log(res);
-})
+const hrefLinks = routeLinks(arrMds)
+statusLink(hrefLinks)
+.then((res)=>{ console.log(res) })
+
+//stats links
+const statLink = (links) =>{
+  const arrLinks = links
+  .then((res)=>{
+    const linkStat = res.map ( (ele)=>{
+      ele.href
+    })
+    const totaLinks = new Set(linkStat)
+    const brokeLink = res.filter((ele)=>ele.ok === 'fail')
+    return{
+      total: res.length,
+      unique: totaLinks.size,
+      broken: brokeLink.length,
+    };
+  })
+  return arrLinks   
+}
+const statusLinks = statusLink(hrefLinks)
+statLink(statusLinks)
+.then(res=>console.log(res));
+
+
 
   module.exports = {
     routeMd,
     routeLinks,
     statusLink
   }
+  
