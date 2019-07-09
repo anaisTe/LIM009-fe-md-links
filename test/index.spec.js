@@ -1,8 +1,8 @@
+#!/usr/bin/env node 
 import { linkAbsValidate,
     fileIsFiles,
     authDir,
     fileExtMd,
-    routeMd
   } from "../src/path.js";
 
 //lee ruta y convierte de relativa a absoluta
@@ -23,15 +23,12 @@ describe('Función que lee un archivo', () => {
     it('fileIsFiles debería ser una función', () => {
       expect(typeof fileIsFiles).toBe('function');
     });
-    // it('Devuelve un true cuando lee la Ruta y es File', () => {
-    //   expect(fileIsFiles('C:/Users/L-5-38/LIM009-fe-md-links/path.js')).toBe(true);        
-    // });
     it('Devuelve un false cuando lee la Ruta y no es File', () => {
       expect(fileIsFiles('C:/Users/L-5-38/LIM009-fe-md-links')).toBe(false);        
     });
   });
 
-//   //lee si es directorio
+//lee si es directorio
  describe('Función que lee un directorio', () => {
     it('fileIsFiles debería ser una función', () => {
       expect(typeof authDir).toEqual('function');
@@ -39,27 +36,14 @@ describe('Función que lee un archivo', () => {
     it('Devuelve un true cuando lee la Ruta y es directorio', () => {
       expect(authDir('C:/Users/L-5-38/LIM009-fe-md-links/src')).toBe(true);        
     });
-  //   it('Devuelve un false cuando lee la Ruta y no es directorio', () => {
-  //     expect(authDir('C:/Users/L-5-38/LIM009-fe-md-links/index.js')).toBe(false);        
-  //   });
   });
 
   //lee extension .md de un archivo
-describe('fileExtMd Función que lee la ext .md',()=>{
+  describe('fileExtMd Función que lee la ext .md',()=>{
     it("deberia ser una funcion",()=>{
         expect(typeof fileExtMd).toEqual('function');
     }),
     it("deberia retornar la extensión del archivo",()=>{
         expect(fileExtMd('C:/Users/L-5-38/LIM009-fe-md-links/index.js')).toBe(false)
     })
-  
 });
-  //Entra si es directorio y trae archivos .md en un array
-  describe('Función que junta las rutas de los archivos con ext .md en un array', () => {
-    it('routeMd debería ser una función', () => {
-      expect(typeof routeMd).toBe('function');
-    });
-    // test('lee el contenido del directorio y retorna un arr con archivos de ext .md', () => {
-    //   expect(routeMd('C:/Users/L-5-38/LIM009-fe-md-links/src')).toBe([ { file: 'C:\\Users\\L-5-38\\LIM009-fe-md-links\\src\\READMe.md' } ]);        
-    // });
- });

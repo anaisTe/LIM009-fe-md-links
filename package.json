@@ -2,7 +2,7 @@
   "name": "lim009-fe-md-links",
   "version": "1.0.0",
   "description": "Markdown md-links",
-  "main": "index.js",
+  "main": "../src/path.js",
   "scripts": {
     "test": "jest --coverage",
     "build": "babel src -d lib"
@@ -23,20 +23,28 @@
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
-    "marked": "^0.6.2"
+    "@types/marked": "^0.6.5",
+    "http-status-codes": "^1.3.2",
+    "marked": "^0.6.2",
+    "mock-fs": "^4.10.1",
+    "node-fetch": "^2.6.0",
+    "path": "^0.12.7"
   },
   "author": "Anais Tejada",
   "license": "ISC",
   "bin": {
-    "md-links": "./lib/cli.js"
+    "md-links": "./src/cli.js"
   },
   "bugs": {
     "url": "https://github.com/anaisTe/LIM009-fe-md-links/issues"
   },
   "homepage": "https://github.com/anaisTe/LIM009-fe-md-links#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.4.4",
     "eslint": "^5.16.0",
     "eslint-config-node": "^4.0.0",
-    "jest": "^24.8.0"
+    "fetch-mock": "^7.3.3",
+    "jest": "^24.8.0",
+    "jest-cli": "^24.8.0"
   }
 }
