@@ -1,13 +1,12 @@
 const routers = 'C:/Users/L-5-38/LIM009-fe-md-links/src'
 const fs = require('fs');
-const inFile = fs.readdirSync(routers);     
+const inFile = fs.readdirSync(routers); //lee
 const path = require('path');
 const myMarked = require('marked'); //compilador
-const fetch = require('node-fetch');
 const fnPath = require ('../src/path')
 
 //extrae los archivos .md y los inserta en un array como obj
-const routeMd = (routers) => {
+  const routeMd = (routers) => {
     let arrRouteMd = [];
       inFile.forEach(eleFile =>{
         let newRouter =  path.join(routers, eleFile)
@@ -20,6 +19,7 @@ const routeMd = (routers) => {
     //   console.log(arrRouteMd);   
     return arrRouteMd
   };
+  
   
   //Usando Marked extrae las propiedades de la ruta y las coloca como obj en un arr
   const routeLinks = (routerMd) =>{
@@ -36,56 +36,14 @@ const routeMd = (routers) => {
     })
     return arrHref
   }
-  const arrMds = routeMd(routers)
-  routeLinks(arrMds)
+  routeLinks(routeMd(routers))
   // console.log(routeLinks(arrMds));
 
-//función que verifica el estatus
-const statusLink = (routeStatus) =>{
-  const linkStat = routeStatus.map(eleLink =>{
-    return fetch(eleLink.href)
-    .then ((res)=>{
-      eleLink.status = res.status;
-        if(res.ok){
-          eleLink.ok = 'ok';
-        }else{
-          eleLink.ok = 'fail';
-        }
-          return eleLink
-    })
-  })
-    return Promise.all(linkStat)
-}
-const hrefLinks = routeLinks(arrMds)
-statusLink(hrefLinks)
-.then((res)=>{ console.log(res) })
 
-//stats links
-const statLink = (links) =>{
-  const arrLinks = links
-  .then((res)=>{
-    const linkStat = res.map ( (ele)=>{
-      ele.href
-    })
-    const totaLinks = new Set(linkStat)
-    const brokeLink = res.filter((ele)=>ele.ok === 'fail')
-    return{
-      total: res.length,
-      unique: totaLinks.size,
-      broken: brokeLink.length,
-    };
-  })
-  return arrLinks   
-}
-const statusLinks = statusLink(hrefLinks)
-statLink(statusLinks)
-.then(res=>console.log(res));
 
 
 
   module.exports = {
     routeMd,
-    routeLinks,
-    statusLink
+    routeLinks
   }
-  

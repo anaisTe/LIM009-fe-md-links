@@ -18,10 +18,8 @@ const linkAbsValidate = (routers) =>{
   let newPath;
   if (path.isAbsolute(routers) === true ) {
     newPath = routers 
-    // console.log(newPath);   
   }else {
     newPath = path.resolve(routers)    
-    // console.log(newPath);    
   }
   return newPath
 }
@@ -43,10 +41,6 @@ const fileExtMd = (routers) => {
   const x = path.extname(routers) === '.md';
   return x
 }
-
-
-
-
 
 module.exports= {
   linkAbsValidate,
